@@ -1,50 +1,52 @@
 import java.awt.*;
 
 public class obstacle {
-    int map[][];
+    int  bricks [][];
     int i;
     int j;
     int  x=50;
-    int y=50;
+    int y=60;
     int brick=0;
+
+    int width;
+    int height;
+
     public obstacle(int a,int b){
-        map=new int[a][b];
-        System.out.println(map[0].length);
-        for( i=0;i<map.length;i++){
-            for( j=0;j<map[0].length;j++){
-                map[i][j]=1;
-                System.out.print("hi");
+        bricks =new int[a][b];
+        //System.out.println( bricks [0].length);
+        for( i=0;i< bricks .length;i++){
+            for( j=0;j< bricks [0].length;j++){
+                bricks [i][j]=1;
+                System.out.print("inside 1st loop");
             }
             System.out.println();
         }
-        System.out.println(map.length);
+        width = 500/b;
+        height = 200/a;
+
+
 
     }
     public void paint (Graphics g) {
         Graphics2D ad=(Graphics2D)g;
-        System.out.println(map.length + " " +map[0].length);
-        for( i=0;i<map.length;i++){
-            for( j=0;j<map[0].length;j++){
-                if(map[i][j]>0){
-                    brick++;
-                    ad.setPaint(Color.RED);
-                    ad.fillRect(x, y, 50, 20);
-                    ad.setPaint(Color.BLACK);
-                    ad.setStroke(new BasicStroke(3));
-                    ad.drawRect(x, y, 50, 20);
-                    System.out.print("i");
+        //System.out.println( bricks .length + " " + bricks [0].length);
+        for( i=0;i< bricks .length;i++){
+            for( j=0;j< bricks [0].length;j++){
+                if( bricks [i][j]>0){
+                    GradientPaint color=new GradientPaint(0,0,Color.BLACK,1000,0,Color.RED);
+                    ad.setPaint(color);
+                   ad.fillRect(j*width +x, i * height +y, width, height);
+
+                    ad.setStroke(new BasicStroke(5));
+                    ad.setPaint(Color.black);
+                    ad.drawRect(j * width + x, i * height + y, width, height);
+
                 }
-
-                x=x+50;
-
-
             }
-
-            y=y+30;
-            x=50;
-            System.out.println();
-
         }
-        System.out.println(brick);
+    }
+
+    public void invisible(int a,int b){
+        bricks [a][b]=0;
     }
 }
