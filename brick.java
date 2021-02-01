@@ -1,19 +1,21 @@
 import javax.swing.*;
 
-public class brick {
-    public static void main(String[] args) {
+public class brick extends JFrame{
+    bone work;
+    brick(String name){
+        System.out.println(name);
+         work=new bone(name);
+         this.add(work);
 
-        JFrame frame=new JFrame("Brick Breaker");
-        frame.setSize(600,500);
-        bone work=new bone();
-        frame.add(work);
-        frame.setVisible(true);
-        frame.pack();
-        frame.setResizable(false);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(600,500);
+        this.setVisible(true);
+        this.pack();
 
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
+
 
 }
