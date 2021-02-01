@@ -17,7 +17,7 @@ public class obstacle {
         for( i=0;i< bricks .length;i++){
             for( j=0;j< bricks [0].length;j++){
                 bricks [i][j]=1;
-                System.out.print("inside 1st loop");
+               // System.out.print("inside 1st loop");
             }
             System.out.println();
         }
@@ -33,7 +33,7 @@ public class obstacle {
         for( i=0;i< bricks .length;i++){
             for( j=0;j< bricks [0].length;j++){
                 if( bricks [i][j]>0){
-                    GradientPaint color=new GradientPaint(0,0,Color.BLACK,1000,0,Color.RED);
+                    GradientPaint color=new GradientPaint(0,0,Color.BLACK,520,0,Color.darkGray);
                     ad.setPaint(color);
                    ad.fillRect(j*width +x, i * height +y, width, height);
 
@@ -47,6 +47,7 @@ public class obstacle {
     }
 
     public void invisible(int a,int b){
+
         bricks [a][b]=0;
     }
 }
